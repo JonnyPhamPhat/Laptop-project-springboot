@@ -9,11 +9,10 @@ import java.util.List;
 
 @Service
 public interface ILaptopService {
-    List<LaptopDTO> getAll();
+    List<LaptopDTO> getAll(String keyword);
     List<LaptopEntity> listLaptopEntity();
     LaptopDTO save(LaptopDTO laptopDTO);
     void delete(long id);
     int totalItem();
     List<LaptopDTO> findAll(Pageable pageable);
-    List<LaptopEntity> searchLaptop(String keyword);
 }

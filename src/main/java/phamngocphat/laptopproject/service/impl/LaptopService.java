@@ -28,7 +28,12 @@ public class LaptopService implements ILaptopService {
     private LaptopConverter laptopConverter;
 
     @Override
-    public List<LaptopDTO> getAll() {
+    public List<LaptopDTO> getAll(String keyword) {
+        if(keyword != null){
+            return ((List<LaptopEntity>) laptopRepository.findAll(keyword)).stream().map(
+                    this::getAllLap
+            ).collect(Collectors.toList());
+        }
         return ((List<LaptopEntity>) laptopRepository.findAll()).stream().map(
             this::getAllLap
         ).collect(Collectors.toList());
@@ -87,13 +92,5 @@ public class LaptopService implements ILaptopService {
             result.add(laptopDTO);
         }
         return result;
-    }
-
-    @Override
-    public List<LaptopEntity> searchLaptop(String keyword) {
-        if(keyword != null){
-            return laptopRepository.searchLaptop(keyword);
-        }
-        return laptopRepository.findAll();
     }
 }

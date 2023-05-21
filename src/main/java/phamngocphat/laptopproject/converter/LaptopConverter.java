@@ -42,4 +42,15 @@ public class LaptopConverter {
         laptopEntity.setSize(laptopDTO.getSize());
         return laptopEntity;
     }
+
+    public void get(Long id, String name, String card, String drive, String operatingSystem, String screen, String size){
+        LaptopDTO laptopDTO = new LaptopDTO();
+        laptopDTO.setId(id);
+        laptopDTO.setName(name);
+        laptopDTO.setCard(card);
+        laptopDTO.setDrive(drive);
+        laptopDTO.setOperatingSystem(operatingSystem);
+        laptopDTO.setScreen(screen);
+        laptopDTO.setSize(size);
+    }
 }
