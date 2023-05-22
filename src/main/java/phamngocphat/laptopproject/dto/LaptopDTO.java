@@ -9,8 +9,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class LaptopDTO {
-    private Long id;
+public class LaptopDTO extends AbstractDTO{
     private String name;
     private String drive;
     private String screen;

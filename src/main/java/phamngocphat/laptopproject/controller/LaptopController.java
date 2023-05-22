@@ -22,7 +22,12 @@ public class LaptopController {
     @Autowired
     private ILaptopService laptopService;
 
-    @RequestMapping("/")
+    @GetMapping("/login")
+    public String login(){
+        return "login";
+    }
+
+    @GetMapping("/")
     public String ViewHomePage(Model model, @Param("keyword") String keyword){
         List<LaptopDTO> listLaptopDTO = laptopService.getAll(keyword);
         model.addAttribute("listLaptopDTO", listLaptopDTO);
